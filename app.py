@@ -6,7 +6,7 @@ import pandas as pd
 import pickle
 
 # Load the trained model
-model = tf.keras.models.load_model('model.h5')
+#model = tf.keras.models.load_model('model.h5')
 #model = tf.keras.models.load_model("model_fixed.keras", compile=False)
 
 #import streamlit as st
@@ -15,7 +15,27 @@ model = tf.keras.models.load_model('model.h5')
 
 #st.write("TensorFlow version:", tf.__version__)
 #st.write("Keras version:", keras.__version__)
+import streamlit as st
+import tensorflow as tf
 
+@st.cache_resource
+def load_model():
+
+    model = tf.keras.Sequential([
+        tf.keras.layers.Input(shape=(11,)),
+        tf.keras.layers.Dense(64, activation="relu"),
+        tf.keras.layers.Dense(32, activation="relu"),
+        tf.keras.layers.Dense(1, activation="sigmoid")
+    ])
+
+    model.load_weights("model.weights.h5")
+
+    return model
+
+
+model = load_model()
+
+st.success("ANN model loaded successfully!")
 
 
 
