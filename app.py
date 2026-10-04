@@ -6,7 +6,7 @@ import pandas as pd
 import pickle
 
 # Load the trained model
-#model = tf.keras.models.load_model('model.h5')
+model = tf.keras.models.load_model('model.h5')
 #model = tf.keras.models.load_model("model_fixed.keras", compile=False)
 
 #import streamlit as st
@@ -16,27 +16,9 @@ import pickle
 #st.write("TensorFlow version:", tf.__version__)
 #st.write("Keras version:", keras.__version__)
 
-#@st.cache_resource
-#def load_model():
- #   return tf.keras.models.load_model(
-  #      "model_fixed.keras",
-   #     compile=False
-    #)
-
-#model = load_model()
 
 
-import streamlit as st
-import tensorflow as tf
 
-@st.cache_resource
-def load_model():
-    return tf.keras.models.load_model(
-        "model.h5",
-        compile=False
-    )
-
-model = load_model()
 # Load the encoders and scaler
 with open('label_encoder_gender.pkl', 'rb') as file:
     label_encoder_gender = pickle.load(file)
