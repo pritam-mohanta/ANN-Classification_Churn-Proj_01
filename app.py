@@ -15,16 +15,16 @@ import pickle
 
 #st.write("TensorFlow version:", tf.__version__)
 #st.write("Keras version:", keras.__version__)
-'''
-@st.cache_resource
-def load_model():
-    return tf.keras.models.load_model(
-        "model_fixed.keras",
-        compile=False
-    )
 
-model = load_model()
-'''
+#@st.cache_resource
+#def load_model():
+ #   return tf.keras.models.load_model(
+  #      "model_fixed.keras",
+   #     compile=False
+    #)
+
+#model = load_model()
+
 
 import streamlit as st
 import tensorflow as tf
